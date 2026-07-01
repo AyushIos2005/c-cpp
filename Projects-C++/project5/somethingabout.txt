@@ -1,0 +1,19 @@
+1.Create account 
+2. Account Info..
+3.  Deposite amt...
+4.   Check Previos amt...
+5.     Withdraw amount .....
+6.      delete account......
+
+First we will create the related data type as name,CNIC,etc.
+Then we will colledct data from the user.
+After collecting the data we will save it on data file.In our case we are using .txt file to store the data.
+The .txt file will be created on the loaction from wgere the program is exculting .
+We will also manage a A/c number that will be added to the every person who creates the account .
+
+Maganing data.
+1.To deposit the amount we simply show a prompt to user to enter the new amount that he / she is going to deposit.
+2.Then we will simply create a new file and save the update data into it.
+3.After that we will be same for both depsoite and withdraw the mount.
+4.For showing the account info of the user we will simply read the data file and display data on the screen.
+

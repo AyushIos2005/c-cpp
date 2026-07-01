@@ -1,0 +1,18 @@
+1.Porject Idea :- A Hotel-booking application with OOPS!!.
+
+2.What are we buliding :-
+    -> Here using object oriented programming that allow user manage,owner to manage the booking of their hotel.
+    Hotel all staff have access and allow to take guest identifcation.
+
+
+
+
+3.How does it works?
+step -by -step:
+1. manager,staff under booking quota are change some thing.
+2. system
+
+
+CONCEPT REQUIREMENT:_
+
+4.Pseudocode :-

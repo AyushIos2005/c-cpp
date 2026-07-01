@@ -1,0 +1,7 @@
+Idea - "Rail ticket reversation system"
+
+what :-
+first take input using as login 
+
+
+

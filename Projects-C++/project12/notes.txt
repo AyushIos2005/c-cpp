@@ -1,0 +1,13 @@
+Steps to develop Tetris (Block Game)
+1.Setup the Game Loop
+2.Create the Blocks 
+3.Create the grid.
+4.Move the blocks.
+5.Rotates the blocks.
+6.Checking for collision.
+7.Check for Complete rows.
+8.Game over.
+9.Create UI.
+10.Add Score.
+11.Add Next Block.
+12.Add Sounds.
