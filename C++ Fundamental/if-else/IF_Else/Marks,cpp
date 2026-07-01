@@ -1,0 +1,29 @@
+#include<iostream>
+ using namespace std;
+ int main(){
+     int m;
+     cout<<"Enter the marks of the student : ";
+     cin>>m;
+     if(m >= 81 and m <= 100){
+        cout << "Very Good"<<endl;
+
+     }
+     else if(m >= 61 and m <= 80){
+        cout << "Good"<<endl;
+
+     }
+     else if(m >= 41 and m <= 60){
+        cout << "Average"<<endl;
+
+     }
+     else if(m >= 0 and m <= 40){
+        cout<<"Fail"<<endl;
+     }
+
+     
+     else{
+        cout << "Invalid Marks"<<endl;
+
+     }
+    return 0;
+ }

@@ -1,0 +1,3 @@
+Name: Ayush Verma
+Age: 20
+Course: DSA

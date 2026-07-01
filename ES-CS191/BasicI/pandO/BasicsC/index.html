@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES-CS191 Lab — Solutions Showcase (HTML)</title>
+    <style>
+        body { font-family: Arial, sans-serif; background:#f4f6f8; margin:0; padding:20px; color:#222 }
+        header { text-align:center; background:#0d6efd; color:#fff; padding:20px; border-radius:8px }
+        .container { max-width:1000px; margin:20px auto; background:#fff; padding:20px; border-radius:8px; box-shadow:0 6px 24px rgba(10,10,10,0.08) }
+        h2 { color:#0d6efd; margin-top:0 }
+        .code-section { border:1px solid #e6e9ee; border-radius:6px; overflow:hidden; margin-bottom:12px }
+        .code-header { background:#fafbfd; padding:12px 14px; display:flex; justify-content:space-between; align-items:center; cursor:pointer }
+        .code-header strong { font-size:1rem }
+        .toggle-btn { background:#0d6efd; color:#fff; border:0; padding:6px 10px; border-radius:4px; cursor:pointer }
+        .code-content { display:none; padding:14px; background:#f7f9fc }
+        pre { background:#fff; border:1px solid #e6eaef; padding:12px; overflow:auto; white-space:pre-wrap; font-family:Consolas, 'Courier New', monospace }
+        footer { text-align:center; color:#666; margin-top:18px; font-size:0.9rem }
+        @media (max-width:700px){ .container{padding:12px} }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ES-CS191 — Programming for Problem Solving (Lab)</h1>
+        <p>Codehub represent solutions for the lab assignment (24 programs)</p>
+        <p>CODEHUB</p>
+    </header>
+
+    <div class="container">
+        <h2>Solutions (click a section to expand the code)</h2>
+
+        <!-- 1 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code1')">
+                <strong>1. Print Name and Roll Number</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code1" class="code-content">
+                <pre>&lt;!-- C program: print name and roll number --&gt;
+#include &lt;stdio.h&gt;
+
+int main() {
+    char name[100];
+    int roll;
+    printf("Enter your name: ");
+    fgets(name, sizeof(name), stdin);
+    // remove newline if present
+    if (name[strlen(name)-1] == '\n') name[strlen(name)-1] = '\0';
+    printf("Enter your roll number: ");
+    scanf("%d", &roll);
+
+    printf("Your Name : %s\n", name);
+    printf("Roll no : %d\n", roll);
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code2')">
+                <strong>2. Input a, b, c, d — print value, address and size</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code2" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int a;
+    float b;
+    char c;
+    double d;
+
+    printf("Enter an integer a: ");
+    scanf("%d", &a);
+    printf("Enter a float b: ");
+    scanf("%f", &b);
+    printf("Enter a character c: ");
+    // consume newline
+    getchar();
+    c = getchar();
+    printf("Enter a double d: ");
+    scanf("%lf", &d);
+
+    printf("\nValue of a = %d, Address = %p, Size = %zu bytes\n", a, (void*)&a, sizeof(a));
+    printf("Value of b = %f, Address = %p, Size = %zu bytes\n", b, (void*)&b, sizeof(b));
+    printf("Value of c = %c, Address = %p, Size = %zu bytes\n", c, (void*)&c, sizeof(c));
+    printf("Value of d = %lf, Address = %p, Size = %zu bytes\n", d, (void*)&d, sizeof(d));
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code3')">
+                <strong>3. Swap two integers without using a 3rd variable</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code3" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int x, y;
+    printf("Enter two integers separated by space: ");
+    scanf("%d %d", &x, &y);
+    printf("Before swap: x=%d, y=%d\n", x, y);
+
+    // Using arithmetic (careful with overflow) - or use XOR for integers
+    x = x ^ y;
+    y = x ^ y;
+    x = x ^ y;
+
+    printf("After swap: x=%d, y=%d\n", x, y);
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code4')">
+                <strong>4. Simple and Compound Interest (maturity amount)</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code4" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main() {
+    double p, r;
+    int t;
+    printf("Enter principal (p): "); scanf("%lf", &p);
+    printf("Enter annual rate (r) in percent: "); scanf("%lf", &r);
+    printf("Enter time (t) in years: "); scanf("%d", &t);
+
+    // Simple interest maturity (total amount)
+    double simple_maturity = p + (p * r * t) / 100.0;
+
+    // Compound interest (compounded annually)
+    double compound_maturity = p * pow(1 + r / 100.0, t);
+
+    printf("Simple interest maturity amount = %.2lf\n", simple_maturity);
+    printf("Compound interest maturity amount = %.2lf\n", compound_maturity);
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code5')">
+                <strong>5. Check Leap Year</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code5" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int year;
+    printf("Enter year: "); scanf("%d", &year);
+    if ( (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0) )
+        printf("%d is a leap year\n", year);
+    else
+        printf("%d is not a leap year\n", year);
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code6')">
+                <strong>6. Maximum and Minimum of three numbers (ternary)</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code6" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int a, b, c;
+    printf("Enter three integers: "); scanf("%d %d %d", &a, &b, &c);
+    int max = (a &gt; b) ? ((a &gt; c) ? a : c) : ((b &gt; c) ? b : c);
+    int min = (a &lt; b) ? ((a &lt; c) ? a : c) : ((b &lt; c) ? b : c);
+    printf("Maximum = %d\nMinimum = %d\n", max, min);
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code7')">
+                <strong>7. Real roots of a quadratic equation</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code7" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main() {
+    double a, b, c;
+    printf("Enter coefficients a b c: ");
+    scanf("%lf %lf %lf", &a, &b, &c);
+    double disc = b*b - 4*a*c;
+    if (a == 0) {
+        printf("Not a quadratic equation (a=0)\n");
+    } else if (disc &gt; 0) {
+        double r1 = (-b + sqrt(disc)) / (2*a);
+        double r2 = (-b - sqrt(disc)) / (2*a);
+        printf("Two distinct real roots: %.6lf and %.6lf\n", r1, r2);
+    } else if (disc == 0) {
+        double r = -b / (2*a);
+        printf("One real root (double): %.6lf\n", r);
+    } else {
+        double real = -b / (2*a);
+        double imag = sqrt(-disc) / (2*a);
+        printf("Complex roots: %.6lf + %.6lfi and %.6lf - %.6lfi\n", real, imag, real, imag);
+    }
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code8')">
+                <strong>8. Basic Calculator (+ - * /)</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code8" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int x, y;
+    char op;
+    printf("Enter: a operator b (e.g. 5 + 3): ");
+    if (scanf("%d %c %d", &x, &op, &y) != 3) {
+        printf("Invalid input\n");
+        return 1;
+    }
+    switch (op) {
+        case '+': printf("%d %c %d = %d\n", x, op, y, x + y); break;
+        case '-': printf("%d %c %d = %d\n", x, op, y, x - y); break;
+        case '*': printf("%d %c %d = %d\n", x, op, y, x * y); break;
+        case '/':
+            if (y == 0) printf("Division by zero error\n");
+            else printf("%d %c %d = %.6f\n", x, op, y, (double)x / y);
+            break;
+        default: printf("Unsupported operator\n");
+    }
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code9')">
+                <strong>9. Compute Y = sum_{x=1..5} x^5</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code9" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main() {
+    long long sum = 0;
+    for (int x = 1; x <= 5; x++) {
+        long long p = 1;
+        for (int i = 0; i &lt; 5; i++) p *= x; // x^5
+        sum += p;
+    }
+    printf("Y = %lld\n", sum);
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code10')">
+                <strong>10. Armstrong number check</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code10" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main() {
+    int num; printf("Enter an integer: "); scanf("%d", &num);
+    int original = num, n = 0, temp = num;
+    while (temp != 0) { temp /= 10; n++; }
+    temp = num; int sum = 0;
+    while (temp != 0) {
+        int r = temp % 10;
+        int p = 1;
+        for (int i = 0; i &lt; n; i++) p *= r;
+        sum += p;
+        temp /= 10;
+    }
+    if (sum == original) printf("%d is an Armstrong number\n", original);
+    else printf("%d is not an Armstrong number\n", original);
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 11 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code11')">
+                <strong>11. Prime number check</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code11" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main() {
+    int n; printf("Enter number: "); scanf("%d", &n);
+    if (n &lt; 2) { printf("%d is not prime\n", n); return 0; }
+    for (int i = 2; i <= (int)sqrt(n); i++) {
+        if (n % i == 0) { printf("%d is not prime (divisible by %d)\n", n, i); return 0; }
+    }
+    printf("%d is prime\n", n);
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 12 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code12')">
+                <strong>12. Generate patterns</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code12" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int n;
+    printf("Enter number of lines: "); scanf("%d", &n);
+    // i) Simple pyramid of stars
+    for (int i = 1; i <= n; i++) {
+        for (int s = 0; s &lt; n - i; s++) printf(" ");
+        for (int j = 0; j &lt; i; j++) printf("* ");
+        printf("\n");
+    }
+    printf("\n");
+    // ii) Alphabet triangle (a b c ...)
+    char ch = 'a';
+    for (int i = 1; i <= n; i++) {
+        for (int j = 0; j &lt; i; j++) {
+            printf("%c ", ch);
+            if (ch == 'z') ch = 'a'; else ch++;
+        }
+        printf("\n");
+    }
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 13 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code13')">
+                <strong>13. Sort array in descending order (bubble sort)</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code13" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int n; printf("Enter size of array: "); scanf("%d", &n);
+    int arr[n];
+    for (int i = 0; i &lt; n; i++) scanf("%d", &arr[i]);
+    for (int i = 0; i &lt; n-1; i++) {
+        for (int j = 0; j &lt; n-1-i; j++) {
+            if (arr[j] &lt; arr[j+1]) { // swap for descending
+                int t = arr[j]; arr[j] = arr[j+1]; arr[j+1] = t;
+            }
+        }
+    }
+    printf("Sorted (descending): ");
+    for (int i = 0; i &lt; n; i++) printf("%d ", arr[i]);
+    printf("\n");
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 14 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code14')">
+                <strong>14. Find a key value from an integer array</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code14" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int n; printf("Enter number of elements: "); scanf("%d", &n);
+    int arr[n];
+    for (int i = 0; i &lt; n; i++) scanf("%d", &arr[i]);
+    int key; printf("Enter key to search: "); scanf("%d", &key);
+    int pos = -1;
+    for (int i = 0; i &lt; n; i++) if (arr[i] == key) { pos = i; break; }
+    if (pos == -1) printf("Key not found\n");
+    else printf("Key found at index %d (0-based)\n", pos);
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 15 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code15')">
+                <strong>15. Multiply 3x2 matrix by its transpose (result 3x3)</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code15" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+
+int main() {
+    int a[3][2];
+    printf("Enter 3x2 matrix elements (row-wise):\n");
+    for (int i = 0; i &lt; 3; i++) for (int j = 0; j &lt; 2; j++) scanf("%d", &a[i][j]);
+    int b[2][3];
+    // transpose 3x2 -> 2x3
+    for (int i = 0; i &lt; 3; i++) for (int j = 0; j &lt; 2; j++) b[j][i] = a[i][j];
+    int res[3][3];
+    for (int i = 0; i &lt; 3; i++) for (int j = 0; j &lt; 3; j++) {
+        res[i][j] = 0;
+        for (int k = 0; k &lt; 2; k++) res[i][j] += a[i][k] * b[k][j];
+    }
+    printf("Result (3x3):\n");
+    for (int i = 0; i &lt; 3; i++) {
+        for (int j = 0; j &lt; 3; j++) printf("%d ", res[i][j]);
+        printf("\n");
+    }
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 16 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code16')">
+                <strong>16. Frequency of vowels in a statement</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code16" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    char s[1000];
+    printf("Enter a statement: \n");
+    fgets(s, sizeof(s), stdin);
+    int fa = 0, fe = 0, fi = 0, fo = 0, fu = 0;
+    for (int i = 0; s[i]; i++) {
+        char ch = s[i];
+        if (ch == 'a' || ch == 'A') fa++;
+        else if (ch == 'e' || ch == 'E') fe++;
+        else if (ch == 'i' || ch == 'I') fi++;
+        else if (ch == 'o' || ch == 'O') fo++;
+        else if (ch == 'u' || ch == 'U') fu++;
+    }
+    printf("a: %d\ne: %d\ni: %d\no: %d\nu: %d\n", fa, fe, fi, fo, fu);
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 17 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code17')">
+                <strong>17. String palindrome (with and without string.h)</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code17" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;ctype.h&gt;
+
+// Using string library
+int is_pal_lib(const char *s) {
+    int i = 0, j = strlen(s) - 1;
+    while (i &lt; j) {
+        while (i &lt; j &amp;&amp; !isalnum((unsigned char)s[i])) i++;
+        while (i &lt; j &amp;&amp; !isalnum((unsigned char)s[j])) j--;
+        if (tolower((unsigned char)s[i]) != tolower((unsigned char)s[j])) return 0;
+        i++; j--;
+    }
+    return 1;
+}
+
+// Without using string.h (simple version)
+int is_pal_nolib(char *s) {
+    int len = 0; while (s[len]) len++;
+    int i = 0, j = len - 1;
+    while (i &lt; j) {
+        if (s[i] != s[j]) return 0;
+        i++; j--;
+    }
+    return 1;
+}
+
+int main() {
+    char s[500];
+    printf("Enter a string: \n");
+    fgets(s, sizeof(s), stdin);
+    if (s[strlen(s)-1] == '\n') s[strlen(s)-1] = '\0';
+
+    printf("Using library-aware check: %s\n", is_pal_lib(s) ? "Palindrome" : "Not palindrome");
+
+    // prepare a cleaned string (only letters) for nolib version
+    char clean[500]; int idx = 0;
+    for (int i = 0; s[i]; i++) if (isalnum((unsigned char)s[i])) clean[idx++] = tolower((unsigned char)s[i]);
+    clean[idx] = '\0';
+    printf("Without string.h check: %s\n", is_pal_nolib(clean) ? "Palindrome" : "Not palindrome");
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 18 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code18')">
+                <strong>18. Abbreviation of a person\'s name</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code18" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;ctype.h&gt;
+
+int main() {
+    char name[200];
+    printf("Enter full name: \n");
+    fgets(name, sizeof(name), stdin);
+    if (name[strlen(name)-1] == '\n') name[strlen(name)-1] = '\0';
+
+    // Split words and print initials for all but last, then full last name
+    char *token = strtok(name, " ");
+    char words[50][50]; int wc = 0;
+    while (token != NULL) { strcpy(words[wc++], token); token = strtok(NULL, " "); }
+    if (wc == 0) return 0;
+    for (int i = 0; i &lt; wc-1; i++) {
+        printf("%c. ", toupper((unsigned char)words[i][0]));
+    }
+    printf("%s\n", words[wc-1]);
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 19 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code19')">
+                <strong>19. swap1() call by value and swap2() call by address</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code19" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+
+void swap1(int a, int b) { // call by value - won't affect caller
+    int t = a; a = b; b = t;
+    printf("Inside swap1: a=%d b=%d\n", a, b);
+}
+
+void swap2(int *a, int *b) { // call by address - will swap
+    int t = *a; *a = *b; *b = t;
+}
+
+int main() {
+    int x = 5, y = 10;
+    printf("Before: x=%d y=%d\n", x, y);
+    swap1(x, y);
+    printf("After swap1 (call by value): x=%d y=%d\n", x, y);
+    swap2(&x, &y);
+    printf("After swap2 (call by address): x=%d y=%d\n", x, y);
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 20 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code20')">
+                <strong>20. Y = sum_{x=1..5} 1/fact(x) with user-defined fact()</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code20" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+
+long long fact(int n) {
+    if (n <= 1) return 1;
+    long long f = 1;
+    for (int i = 2; i <= n; i++) f *= i;
+    return f;
+}
+
+int main() {
+    double Y = 0.0;
+    for (int x = 1; x <= 5; x++) {
+        Y += 1.0 / fact(x);
+    }
+    printf("Y = %.6lf\n", Y);
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 21 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code21')">
+                <strong>21. GCD of two integers using recursion</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code21" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
+}
+
+int main() {
+    int a, b; printf("Enter two integers: "); scanf("%d %d", &a, &b);
+    if (a &lt; 0) a = -a; if (b &lt; 0) b = -b;
+    printf("GCD = %d\n", gcd(a, b));
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 22 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code22')">
+                <strong>22. Fibonacci by recursion up to n terms</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code22" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+
+int fib(int n) {
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+    return fib(n-1) + fib(n-2);
+}
+
+int main() {
+    int n; printf("Enter number of terms: "); scanf("%d", &n);
+    for (int i = 0; i &lt; n; i++) printf("%d ", fib(i));
+    printf("\n");
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 23 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code23')">
+                <strong>23. Student DB using struct and dynamic memory; display students with highest marks</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code23" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+struct Student { char name[100]; int roll; int marks; };
+
+int main() {
+    int n; printf("Enter number of students: "); scanf("%d", &n);
+    struct Student *arr = malloc(n * sizeof(struct Student));
+    for (int i = 0; i &lt; n; i++) {
+        printf("Enter name for student %d: ", i+1);
+        getchar(); // consume newline
+        fgets(arr[i].name, sizeof(arr[i].name), stdin);
+        if (arr[i].name[strlen(arr[i].name)-1] == '\n') arr[i].name[strlen(arr[i].name)-1] = '\0';
+        printf("Enter roll and marks: "); scanf("%d %d", &arr[i].roll, &arr[i].marks);
+    }
+    int maxMarks = arr[0].marks;
+    for (int i = 1; i &lt; n; i++) if (arr[i].marks &gt; maxMarks) maxMarks = arr[i].marks;
+    printf("\nStudents with highest marks (%d):\n", maxMarks);
+    for (int i = 0; i &lt; n; i++) if (arr[i].marks == maxMarks) printf("%s (Roll %d)\n", arr[i].name, arr[i].roll);
+    free(arr);
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <!-- 24 -->
+        <div class="code-section">
+            <div class="code-header" onclick="toggleCode('code24')">
+                <strong>24. File handling: write Profile.txt then copy to myProfile.txt</strong>
+                <button class="toggle-btn">Show Code</button>
+            </div>
+            <div id="code24" class="code-content">
+                <pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+    char name[100], address[200];
+    printf("Enter your name: "); fgets(name, sizeof(name), stdin);
+    printf("Enter your address (single line): "); fgets(address, sizeof(address), stdin);
+
+    FILE *fp = fopen("Profile.txt", "w");
+    if (!fp) { perror("Error opening Profile.txt"); return 1; }
+    fprintf(fp, "Name: %s", name);
+    fprintf(fp, "Address: %s", address);
+    fclose(fp);
+
+    FILE *in = fopen("Profile.txt", "r");
+    FILE *out = fopen("myProfile.txt", "w");
+    if (!in || !out) { perror("Error opening files"); return 1; }
+    int ch;
+    while ((ch = fgetc(in)) != EOF) fputc(ch, out);
+    fclose(in); fclose(out);
+    printf("Contents copied to myProfile.txt\n");
+    return 0;
+}
+</pre>
+            </div>
+        </div>
+
+        <footer>
+            © VGI .@CODEHUB 2024
+        </footer>
+    </div>
+
+    <script>
+        function toggleCode(id) {
+            var content = document.getElementById(id);
+            var btn = content.previousElementSibling.querySelector('.toggle-btn');
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                btn.textContent = 'Show Code';
+            } else {
+                content.style.display = 'block';
+                btn.textContent = 'Hide Code';
+            }
+        }
+    </script>
+</body>
+</html>

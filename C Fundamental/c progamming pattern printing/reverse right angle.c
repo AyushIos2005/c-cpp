@@ -1,0 +1,17 @@
+#include<stdio.h>
+ int main(){
+ 	int m,n;//m--> col and n--> row 
+ 	printf("Enter the number of row :");
+ 	scanf("%d",&n);
+ 	printf("Enter the number of column :");
+ 	scanf("%d",&m);
+ 	
+ 	 for(int i =1;i<= n;i++){
+ 	 	for(int j =1;j<=n+1-i;j++){
+ 	 		printf("*");
+ 	 		
+		  }
+		  printf("\n");
+	  }
+ 	return 0;
+ }

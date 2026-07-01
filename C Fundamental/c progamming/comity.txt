@@ -1,0 +1,26 @@
+SOFTWARE  SOLUTION 
+ BY AYUSH VERMA 
+(ENTERPRETER)
+A software that  can able to find shelter in outside of INDIA 
+It can ability of find stolen thing (i.e. if the person need urgent requirement  without going to INDIAN MNC )in USA, ITATY, DUBAI, etc . 
+INDUCTION :-
+ It is basically a software which directly connected to INDIAN GOVERNMENT and INDIAN MNC   which is espeailly for the Indian who go to aboards / outside of India for their jobs,business ,etc . For some quiet reasons they lost everything because of perfect guidance.
+ARCHITECTURE :- 
+Perfect code.
+Web designing.
+Prefect AI assistant .
+Cloud connectivity. 
+Must important language assistant.
+
+FEATURE :-
+Good connectivity {Indian gov & Indian MNC}
+Real time assistant.
+Red alert.
+It will a lot helpful startup as well as job in aboard. 
+
+REFERENCES:- 
+
+Business standard 						
+TIME OF INDIA                                                                      
+Levearge Edu
+ 

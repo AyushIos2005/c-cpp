@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Percentage Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f2f5;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .student-form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+      margin-bottom: 20px;
+    }
+
+    .student-form input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .result {
+      background: #e0f7fa;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 10px;
+      border: 1px solid #00acc1;
+    }
+
+    hr {
+      border: 1px dashed #bbb;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📘 Percentage Calculator</h1>
+
+  <div class="student-form">
+    <label>Student Name:</label>
+    <input type="text" id="name" placeholder="Enter name">
+
+    <label>Hindi Marks:</label>
+    <input type="number" id="hindi" placeholder="Out of 100">
+
+    <label>English Marks:</label>
+    <input type="number" id="english" placeholder="Out of 100">
+
+    <label>Physics Marks:</label>
+    <input type="number" id="physics" placeholder="Out of 100">
+
+    <label>Chemistry Marks:</label>
+    <input type="number" id="chemistry" placeholder="Out of 100">
+
+    <label>Maths Marks:</label>
+    <input type="number" id="maths" placeholder="Out of 100">
+
+    <button onclick="calculate()">Calculate</button>
+  </div>
+
+  <div id="output"></div>
+
+  <script>
+    function vermaline() {
+      return "<hr>";
+    }
+
+    function calculate() {
+      const name = document.getElementById("name").value;
+      const hindi = parseInt(document.getElementById("hindi").value) || 0;
+      const english = parseInt(document.getElementById("english").value) || 0;
+      const physics = parseInt(document.getElementById("physics").value) || 0;
+      const chemistry = parseInt(document.getElementById("chemistry").value) || 0;
+      const maths = parseInt(document.getElementById("maths").value) || 0;
+
+      const total = hindi + english + physics + chemistry + maths;
+      const percentage = (total / 5).toFixed(2);
+
+      const outputDiv = document.getElementById("output");
+
+      outputDiv.innerHTML = `
+        <div class="result">
+          ${vermaline()}
+          <strong>Name:</strong> ${name} <br>
+          <strong>Total Marks:</strong> ${total} <br>
+          <strong>Percentage:</strong> ${percentage}% <br>
+          ${vermaline()}
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
